@@ -4,10 +4,130 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Barbas Barbershop</title>
+    <link rel="stylesheet" href="/frontend/style.css">
 </head>
 
 <body>
+
+    <!-- HEADER -->
+    <header>
+        <nav>
+            <h1>Barbas</h1>
+            <div class="hamburger" id="hamburger">&#9776;</div>
+            <ul class="nav-items-container" id="nav-menu">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#appointments">Appointments</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section class="hero" id="hero">
+        <div class="hero-content">
+            <h1>Barbas Barbershop</h1>
+            <p>Precision Cuts • Modern Styles • Classic Grooming</p>
+            <a href="#appointments" class="cta-button">Book an Appointment</a>
+        </div>
+    </section>
+
+    <!-- SERVICES SECTION -->
+    <section class="services" id="services">
+        <h2>Our Services</h2>
+        <div class="services-grid">
+            <div class="service-card">
+                <h3>Classic Haircut</h3>
+                <p>Precision styling tailored to your look.</p>
+            </div>
+            <div class="service-card">
+                <h3>Beard Trim</h3>
+                <p>Sharp edges & perfect grooming.</p>
+            </div>
+            <div class="service-card">
+                <h3>Hot Towel Shave</h3>
+                <p>Relaxing, smooth & professional.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- FEATURED MERCH SECTION -->
+    <section class="merch">
+        <h2>Featured Merch</h2>
+        <div class="merch-container">
+            <div class="merch-item">
+                <img src="../backend/static/assets/merch1.jpeg" alt="Merch Item">
+                <p>Premium Beard Oil - $15</p>
+            </div>
+            <div class="merch-item">
+                <img src="../backend/static/assets/merch2.jpeg" alt="Merch Item">
+                <p>Barbas Branded Snapback - $25</p>
+            </div>
+            <div class="merch-item">
+                <img src="../backend/static/assets/merch3.jpeg" alt="Merch Item">
+                <p>Luxury Shaving Cream - $20</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- APPOINTMENTS SECTION -->
+    <section class="appointments" id="appointments">
+        <h2>Book an Appointment</h2>
+        <form>
+            <input type="text" placeholder="Your Name" required>
+            <input type="email" placeholder="Your Email" required>
+            <input type="date" required>
+            <button type="submit">Confirm Booking</button>
+        </form>
+        <a href="https://booksy.com" target="_blank" class="booksy-btn">Book on Booksy</a>
+    </section>
+
+    <!-- CONTACT SECTION -->
+    <section class="contact" id="contact">
+        <h2>Contact Us</h2>
+        <div class="contact-content">
+            <div class="contact-info">
+                <p>📍 123 Barber St, Los Angeles, CA</p>
+                <p>📞 (555) 123-4567</p>
+                <p>📧 contact@barbas.com</p>
+            </div>
+            <div class="contact-form">
+                <form>
+                    <input type="text" placeholder="Your Name" required>
+                    <input type="email" placeholder="Your Email" required>
+                    <textarea placeholder="Your Message" required></textarea>
+                    <button type="submit">Send Message</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- FOOTER -->
+    <footer>
+        <p>© 2024 Barbas Barbershop. All Rights Reserved.</p>
+    </footer>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const hamburger = document.getElementById("hamburger");
+            const navMenu = document.getElementById("nav-menu");
+
+            // Toggle Mobile Menu
+            hamburger.addEventListener("click", function () {
+                navMenu.classList.toggle("show");
+            });
+
+            // Close menu when clicking outside
+            document.addEventListener("click", function (event) {
+                if (!navMenu.contains(event.target) && !hamburger.contains(event.target)) {
+                    navMenu.classList.remove("show");
+                }
+            });
+        });
+    </script>
+
 
 </body>
 

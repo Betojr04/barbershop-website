@@ -1,0 +1,293 @@
+/* GLOBAL STYLING */
+body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #111;
+    color: white;
+    text-align: center;
+}
+
+/* NAVBAR */
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+    background-color: #222;
+    color: white;
+    position: fixed;
+    width: 100%;
+    max-width: 100vw;
+    /* Prevents overflow */
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    box-sizing: border-box;
+    /* Stops padding from messing with width */
+}
+
+/* 🔹 NAVBAR ITEMS */
+.nav-items-container {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-items-container a {
+    text-decoration: none;
+    color: white;
+    font-size: 18px;
+    padding: 10px;
+    transition: color 0.3s ease-in-out;
+}
+
+.nav-items-container a:hover {
+    color: #f4a261;
+}
+
+/* 🔹 HAMBURGER MENU */
+.hamburger {
+    display: none;
+    font-size: 28px;
+    cursor: pointer;
+}
+
+/* HERO SECTION */
+.hero {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: url("../backend/static/assets/banner-image.jpeg") center/cover no-repeat;
+    position: relative;
+    text-align: center;
+}
+
+/* HERO OVERLAY */
+.hero::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+}
+
+.hero-content {
+    position: relative;
+    text-align: center;
+    z-index: 1;
+}
+
+.hero h1 {
+    font-size: 48px;
+    margin-bottom: 10px;
+    animation: fadeIn 1.5s ease-in-out;
+}
+
+.hero p {
+    font-size: 20px;
+    opacity: 0.8;
+}
+
+.cta-button {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: #f4a261;
+    color: black;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 5px;
+    transition: background 0.3s ease;
+}
+
+.cta-button:hover {
+    background: #e76f51;
+}
+
+/* SERVICES */
+.services {
+    padding: 40px 20px;
+}
+
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    max-width: 1000px;
+    margin: auto;
+}
+
+.service-card {
+    background: #222;
+    padding: 20px;
+    border-radius: 10px;
+    transition: transform 0.3s ease;
+    text-align: center;
+}
+
+.service-card:hover {
+    transform: scale(1.05);
+}
+
+/* MERCH */
+.merch {
+    padding: 40px 20px;
+}
+
+.merch-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+    max-width: 1000px;
+    margin: auto;
+}
+
+.merch-item img {
+    width: 100%;
+    border-radius: 5px;
+    transition: transform 0.3s ease;
+}
+
+.merch-item img:hover {
+    transform: scale(1.05);
+}
+
+/* APPOINTMENTS */
+.appointments {
+    text-align: center;
+    padding: 40px 20px;
+}
+
+.appointments form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 300px;
+    margin: auto;
+}
+
+.booksy-btn {
+    display: inline-block;
+    margin-top: 15px;
+    padding: 12px 20px;
+    background-color: #f4a261;
+    color: black;
+    font-weight: bold;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: background 0.3s ease;
+}
+
+.booksy-btn:hover {
+    background: #e76f51;
+}
+
+/* CONTACT */
+.contact {
+    padding: 40px 20px;
+}
+
+.contact-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 900px;
+    margin: auto;
+}
+
+.contact-info {
+    text-align: left;
+    width: 40%;
+}
+
+.contact-form {
+    width: 50%;
+}
+
+.contact-form form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.contact-form input,
+.contact-form textarea,
+.contact-form button {
+    padding: 12px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.contact-form button {
+    background: #f4a261;
+    color: black;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.contact-form button:hover {
+    background: #e76f51;
+}
+
+/* FOOTER */
+footer {
+    padding: 20px;
+    background: #222;
+}
+
+/* 🔹 MOBILE RESPONSIVENESS */
+@media screen and (max-width: 768px) {
+    .hamburger {
+        display: block;
+    }
+
+    .nav-items-container {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        /* Forces it to fit the screen */
+        max-width: 100vw;
+        /* Prevents overflow */
+        position: absolute;
+        top: 100%;
+        left: 0;
+        background-color: rgba(0, 0, 0, 0.9);
+        text-align: center;
+        padding: 10px 0;
+    }
+
+    .nav-items-container.show {
+        display: flex;
+    }
+
+    .nav-items-container li {
+        padding: 15px 0;
+        width: 100%;
+    }
+
+    /* Adjust Services, Merch, and Appointments Layout */
+    .services-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .merch-container {
+        grid-template-columns: 1fr;
+    }
+
+    .contact-content {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .contact-info,
+    .contact-form {
+        width: 100%;
+    }
+}
