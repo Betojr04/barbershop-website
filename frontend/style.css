@@ -8,6 +8,13 @@ body {
     text-align: center;
 }
 
+
+
+
+
+
+
+
 /* NAVBAR */
 nav {
     display: flex;
@@ -54,6 +61,15 @@ nav {
     font-size: 28px;
     cursor: pointer;
 }
+
+
+
+
+
+
+
+
+
 
 /* HERO SECTION */
 .hero {
@@ -110,131 +126,457 @@ nav {
     background: #e76f51;
 }
 
-/* SERVICES */
+
+
+
+
+
+
+
+
+/* SERVICES SECTION */
 .services {
-    padding: 40px 20px;
+    padding: 120px 20px;
+    text-align: center;
+    background: #0f0f0f;
+    color: white;
+    position: relative;
+    overflow: hidden;
 }
 
+/* Title */
+.section-title {
+    font-size: 42px;
+    margin-bottom: 60px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-weight: bold;
+    background: linear-gradient(90deg, #f4a261, #e76f51);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/* Services Grid */
 .services-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 20px;
-    max-width: 1000px;
-    margin: auto;
-}
-
-.service-card {
-    background: #222;
-    padding: 20px;
-    border-radius: 10px;
-    transition: transform 0.3s ease;
-    text-align: center;
-}
-
-.service-card:hover {
-    transform: scale(1.05);
-}
-
-/* MERCH */
-.merch {
-    padding: 40px 20px;
-}
-
-.merch-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 20px;
-    max-width: 1000px;
-    margin: auto;
-}
-
-.merch-item img {
-    width: 100%;
-    border-radius: 5px;
-    transition: transform 0.3s ease;
-}
-
-.merch-item img:hover {
-    transform: scale(1.05);
-}
-
-/* APPOINTMENTS */
-.appointments {
-    text-align: center;
-    padding: 40px 20px;
-}
-
-.appointments form {
     display: flex;
     flex-direction: column;
-    gap: 10px;
-    width: 300px;
+    gap: 60px;
+    max-width: 1100px;
     margin: auto;
+    opacity: 0;
+    transform: translateY(40px);
+    animation: fadeInUp 1s ease-in-out forwards;
 }
 
-.booksy-btn {
-    display: inline-block;
-    margin-top: 15px;
-    padding: 12px 20px;
-    background-color: #f4a261;
-    color: black;
+/* Service Cards */
+.service-card {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 15px;
+    padding: 30px;
+    box-shadow: 0px 15px 50px rgba(255, 255, 255, 0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    opacity: 0;
+    transform: translateY(50px);
+    animation: fadeInUp 1s ease-in-out forwards;
+}
+
+/* Image */
+.service-img img {
+    width: 220px;
+    border-radius: 15px;
+    transition: transform 0.3s ease;
+}
+
+/* Hover Effect */
+.service-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0px 20px 50px rgba(255, 255, 255, 0.15);
+}
+
+/* Text */
+.service-info {
+    max-width: 50%;
+    text-align: left;
+}
+
+.service-info h3 {
+    font-size: 24px;
+    margin-bottom: 10px;
     font-weight: bold;
-    border-radius: 5px;
-    text-decoration: none;
+    color: #f4a261;
+}
+
+.service-info p {
+    font-size: 18px;
+    opacity: 0.8;
+}
+
+/* Scroll Animation */
+@keyframes fadeInUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsive */
+@media screen and (max-width: 768px) {
+    .services-grid {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .service-card {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .service-img img {
+        width: 100%;
+        max-width: 280px;
+    }
+
+    .service-info {
+        max-width: 100%;
+    }
+}
+
+
+
+
+
+
+
+
+
+/* MERCH SECTION */
+.merch {
+    padding: 120px 20px;
+    text-align: center;
+    background: radial-gradient(circle, #121212, #1a1a1a);
+    color: white;
+}
+
+/* Merch Grid */
+.merch-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 40px;
+    max-width: 1100px;
+    margin: auto;
+    padding: 0 20px;
+}
+
+/* Floating Merch Cards */
+.merch-item {
+    background: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(8px);
+    border-radius: 15px;
+    padding: 20px;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0px 8px 20px rgba(255, 255, 255, 0.05);
+}
+
+.merch-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0px 15px 40px rgba(255, 255, 255, 0.2);
+}
+
+/* Merch Image */
+.merch-img img {
+    width: 100%;
+    border-radius: 12px;
+    transition: transform 0.3s ease;
+}
+
+/* Hover Effect */
+.merch-item:hover .merch-img img {
+    transform: scale(1.05);
+}
+
+/* Responsive */
+@media screen and (max-width: 768px) {
+    .merch-container {
+        grid-template-columns: 1fr;
+    }
+}
+
+
+
+
+
+
+
+
+/* APPOINTMENTS */
+/* APPOINTMENTS SECTION */
+.appointments {
+    text-align: center;
+    padding: 100px 20px;
+    background: linear-gradient(135deg, rgba(15, 15, 15, 0.95), rgba(30, 30, 30, 0.95));
+    color: white;
+}
+
+/* Section Title */
+.appointments h2 {
+    font-size: 36px;
+    margin-bottom: 40px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-weight: bold;
+    font-family: 'Playfair Display', serif;
+}
+
+/* Glassmorphism Appointment Container */
+.appointment-container {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(12px);
+    border-radius: 15px;
+    padding: 40px;
+    max-width: 400px;
+    width: 90%;
+    /* 🔹 Ensures it fits within the screen */
+    margin: auto;
+    box-shadow: 0 10px 30px rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+/* Form Inputs */
+.appointment-container input {
+    width: 100%;
+    padding: 12px;
+    margin: 10px 0;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    background: rgba(255, 255, 255, 0.15);
+    color: white;
+    outline: none;
     transition: background 0.3s ease;
 }
 
+/* Input Placeholder Styling */
+.appointment-container input::placeholder {
+    color: rgba(255, 255, 255, 0.6);
+}
+
+/* Input Hover Effect */
+.appointment-container input:focus {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+/* Appointment Button */
+.appointment-btn {
+    width: 100%;
+    padding: 14px;
+    border: none;
+    border-radius: 8px;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    background: linear-gradient(90deg, #f4a261, #e76f51);
+    color: black;
+    transition: transform 0.2s ease, background 0.3s ease;
+}
+
+/* Button Hover */
+.appointment-btn:hover {
+    background: linear-gradient(90deg, #e76f51, #f4a261);
+    transform: scale(1.05);
+}
+
+/* Booksy Button */
+.booksy-btn {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 14px 20px;
+    background: #f4a261;
+    color: black;
+    font-weight: bold;
+    border-radius: 8px;
+    text-decoration: none;
+    transition: transform 0.2s ease, background 0.3s ease;
+}
+
+/* Hover Effect */
 .booksy-btn:hover {
     background: #e76f51;
+    transform: scale(1.05);
 }
+
+/* Responsive */
+@media screen and (max-width: 768px) {
+    .appointment-container {
+        width: 90%;
+        /* 🔹 Ensures it stays within the screen */
+        max-width: 300px;
+        /* 🔹 Prevents it from being too wide */
+        margin: auto;
+        /* 🔹 Centers the container */
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        /* 🔹 Ensures everything inside is centered */
+    }
+
+
+}
+
+
+
+
+
+
+
 
 /* CONTACT */
+/* CONTACT SECTION */
 .contact {
-    padding: 40px 20px;
+    padding: 120px 20px;
+    text-align: center;
+    background: linear-gradient(135deg, rgba(15, 15, 15, 0.95), rgba(30, 30, 30, 0.95));
+    color: white;
 }
 
+/* Section Title */
+.section-title {
+    font-size: 42px;
+    margin-bottom: 50px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-weight: bold;
+    font-family: 'Playfair Display', serif;
+    background: linear-gradient(90deg, #f4a261, #e76f51);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/* Contact Content Layout */
 .contact-content {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    max-width: 900px;
+    max-width: 1000px;
     margin: auto;
+    padding: 30px;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
 }
 
+/* Contact Info */
 .contact-info {
     text-align: left;
     width: 40%;
+    font-size: 18px;
+    line-height: 1.8;
 }
 
+.contact-info p {
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.contact-info i {
+    font-size: 22px;
+    color: #f4a261;
+}
+
+/* Contact Form */
 .contact-form {
     width: 50%;
 }
 
+/* Form Inputs */
 .contact-form form {
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: 15px;
 }
 
 .contact-form input,
-.contact-form textarea,
-.contact-form button {
-    padding: 12px;
+.contact-form textarea {
+    width: 100%;
+    padding: 14px;
     border: none;
-    border-radius: 5px;
+    border-radius: 8px;
     font-size: 16px;
-}
-
-.contact-form button {
-    background: #f4a261;
-    color: black;
-    cursor: pointer;
+    background: rgba(255, 255, 255, 0.15);
+    color: white;
+    outline: none;
     transition: background 0.3s ease;
 }
 
-.contact-form button:hover {
-    background: #e76f51;
+/* Placeholder Styling */
+.contact-form input::placeholder,
+.contact-form textarea::placeholder {
+    color: rgba(255, 255, 255, 0.6);
 }
+
+/* Input Hover Effect */
+.contact-form input:focus,
+.contact-form textarea:focus {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+/* Send Button */
+.send-btn {
+    width: 100%;
+    padding: 14px;
+    border: none;
+    border-radius: 8px;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    background: linear-gradient(90deg, #f4a261, #e76f51);
+    color: black;
+    transition: transform 0.2s ease, background 0.3s ease;
+}
+
+/* Button Hover */
+.send-btn:hover {
+    background: linear-gradient(90deg, #e76f51, #f4a261);
+    transform: scale(1.05);
+}
+
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+    .contact-content {
+        flex-direction: column;
+        width: 80%;
+        padding: 25px;
+    }
+
+    .contact-info {
+        width: 100%;
+        text-align: center;
+        margin-bottom: 20px;
+    }
+
+    .contact-form {
+        width: 100%;
+    }
+}
+
+
+
+
+
+
+
+
+
 
 /* FOOTER */
 footer {
