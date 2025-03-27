@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Barbas Barbershop</title>
+    <link rel="icon" type="image/png" href="./assets/images/barbas.png">
+
+    <!-- Mapbox GL JS -->
+    <link href="https://api.mapbox.com/mapbox-gl-js/v2.15.0/mapbox-gl.css" rel="stylesheet" />
+    <script src="https://api.mapbox.com/mapbox-gl-js/v2.15.0/mapbox-gl.js"></script>
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+        integrity="sha512-Avb2QiuDEEvB4bZJYdft2mNjVShBftLdPG8FJ0V7irTLQ8Uo0qcPxh4Plq7G5tGm0rU+1SPhVotteLpBERwTkw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+
+
+
+    <link rel="stylesheet" href="/frontend/gallery.css">
+    <link rel="stylesheet" href="/frontend/style.css">
+
+</head>
+
+<body>
+
+    <!-- HEADER -->
+    <header>
+        <nav>
+            <h1><a href="./index.html#hero">Barbas</a></h1>
+
+            <!-- 👇 LOGO IN THE CENTER -->
+            <div class="nav-logo-wrapper">
+                <img src="./assets/images/barbas.png" alt="Barbas Logo" class="nav-logo">
+            </div>
+
+            <div class="hamburger" id="hamburger">&#9776;</div>
+            <ul class="nav-items-container" id="nav-menu">
+                <li><a href="./index.html">Home</a></li>
+                <li><a href="./index.html#gallery">Gallery</a></li>
+                <li><a href="./index.html#appointments">Appointments</a></li>
+                <li><a href="./index.html#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="gallery-page">
+        <h2 class="section-title">Full Gallery</h2>
+        <div class="gallery-grid">
+            <img src="https://images.unsplash.com/photo-1618049049816-43a00d5b0c3d" alt="Cut 1">
+            <img src="https://images.unsplash.com/photo-1618049049816-43a00d5b0c3d" alt="Cut 1">
+            <img src="https://images.unsplash.com/photo-1618049049816-43a00d5b0c3d" alt="Cut 1">
+            <img src="https://images.unsplash.com/photo-1618049049816-43a00d5b0c3d" alt="Cut 1">
+            <img src="https://images.unsplash.com/photo-1618049049816-43a00d5b0c3d" alt="Cut 1">
+            <img src="https://images.unsplash.com/photo-1618049049816-43a00d5b0c3d" alt="Cut 1">
+            <img src="https://images.unsplash.com/photo-1618049049816-43a00d5b0c3d" alt="Cut 1">
+            <img src="https://images.unsplash.com/photo-1618049049816-43a00d5b0c3d" alt="Cut 1">
+            <img src="https://images.unsplash.com/photo-1618049049816-43a00d5b0c3d" alt="Cut 1">
+            <img src="https://images.unsplash.com/photo-1618049049816-43a00d5b0c3d" alt="Cut 1">
+            <img src="https://images.unsplash.com/photo-1618049049816-43a00d5b0c3d" alt="Cut 1">
+            <img src="https://images.unsplash.com/photo-1618049049816-43a00d5b0c3d" alt="Cut 1">
+            <img src="https://images.unsplash.com/photo-1618049049816-43a00d5b0c3d" alt="Cut 1">
+            <img src="https://images.unsplash.com/photo-1618049049816-43a00d5b0c3d" alt="Cut 1">
+            <img src="https://images.unsplash.com/photo-1618049049816-43a00d5b0c3d" alt="Cut 1">
+            <img src="https://images.unsplash.com/photo-1618049049816-43a00d5b0c3d" alt="Cut 1">
+            <img src="https://images.unsplash.com/photo-1618049049816-43a00d5b0c3d" alt="Cut 1">
+        </div>
+    </section>
+
+
+
+
+    <!-- FOOTER -->
+    <footer>
+        <p>© 2024 Barbas Barbershop. All Rights Reserved.</p>
+    </footer>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const hamburger = document.getElementById("hamburger");
+            const navMenu = document.getElementById("nav-menu");
+
+            // Toggle Mobile Menu
+            hamburger.addEventListener("click", function () {
+                navMenu.classList.toggle("show");
+            });
+
+            // Close menu when clicking outside
+            document.addEventListener("click", function (event) {
+                if (!navMenu.contains(event.target) && !hamburger.contains(event.target)) {
+                    navMenu.classList.remove("show");
+                }
+            });
+        });
+    </script>
+
+
+
+
+
+
+</body>
+
+</html>

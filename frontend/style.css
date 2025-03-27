@@ -12,8 +12,37 @@ body {
 
 
 
+/* 🔹 LOGO CENTER STYLES */
+.nav-logo-wrapper {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1;
+}
 
+.nav-logo {
+    height: 60px;
+    width: auto;
+}
 
+/* 🔹 NAV TITLE MATCHING SECTION HEADERS */
+
+nav h1 {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700;
+    font-size: 24px;
+
+}
+
+nav h1 a {
+    color: #f4a261;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+nav h1 a:hover {
+    color: #e76f51;
+}
 
 /* NAVBAR */
 nav {
@@ -26,7 +55,6 @@ nav {
     position: fixed;
     width: 100%;
     max-width: 100vw;
-    /* Prevents overflow */
     top: 0;
     left: 0;
     z-index: 1000;
@@ -60,6 +88,7 @@ nav {
     display: none;
     font-size: 28px;
     cursor: pointer;
+    color: #f4a261;
 }
 
 
@@ -77,7 +106,7 @@ nav {
     justify-content: center;
     align-items: center;
     height: 100vh;
-    background: url("../backend/static/assets/banner-image.jpeg") center/cover no-repeat;
+    background: url("./assets/images/banner-image.jpeg") center/cover no-repeat;
     position: relative;
     text-align: center;
 }
@@ -134,114 +163,141 @@ nav {
 
 
 
-/* SERVICES SECTION */
-.services {
+/* FEATURED CUTS SECTION */
+.featured-cuts {
     padding: 120px 20px;
     text-align: center;
-    background: #0f0f0f;
+    background: linear-gradient(145deg, #0f0f0f, #1a1a1a);
     color: white;
-    position: relative;
     overflow: hidden;
 }
 
-/* Title */
-.section-title {
+.featured-cuts .section-title {
     font-size: 42px;
-    margin-bottom: 60px;
+    margin-bottom: 20px;
     text-transform: uppercase;
     letter-spacing: 2px;
     font-weight: bold;
     background: linear-gradient(90deg, #f4a261, #e76f51);
+    background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
 
-/* Services Grid */
-.services-grid {
-    display: flex;
-    flex-direction: column;
-    gap: 60px;
-    max-width: 1100px;
-    margin: auto;
-    opacity: 0;
-    transform: translateY(40px);
-    animation: fadeInUp 1s ease-in-out forwards;
-}
-
-/* Service Cards */
-.service-card {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    background: rgba(255, 255, 255, 0.05);
-    border-radius: 15px;
-    padding: 30px;
-    box-shadow: 0px 15px 50px rgba(255, 255, 255, 0.05);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    border: 2px solid rgba(255, 255, 255, 0.2);
-    opacity: 0;
-    transform: translateY(50px);
-    animation: fadeInUp 1s ease-in-out forwards;
-}
-
-/* Image */
-.service-img img {
-    width: 220px;
-    border-radius: 15px;
-    transition: transform 0.3s ease;
-}
-
-/* Hover Effect */
-.service-card:hover {
-    transform: scale(1.05);
-    box-shadow: 0px 20px 50px rgba(255, 255, 255, 0.15);
-}
-
-/* Text */
-.service-info {
-    max-width: 50%;
-    text-align: left;
-}
-
-.service-info h3 {
-    font-size: 24px;
-    margin-bottom: 10px;
-    font-weight: bold;
-    color: #f4a261;
-}
-
-.service-info p {
+.featured-cuts .section-subtitle {
     font-size: 18px;
-    opacity: 0.8;
+    margin-bottom: 50px;
+    opacity: 0.7;
 }
 
-/* Scroll Animation */
 @keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(40px);
+    }
+
     to {
         opacity: 1;
         transform: translateY(0);
     }
 }
 
+.cuts-grid {
+    display: grid;
+    grid-template-areas:
+        "tall1 featured tall2"
+        "short1 featured short2";
+    grid-template-columns: 1fr 1.5fr 1fr;
+    gap: 20px;
+    max-width: 1100px;
+    margin: auto;
+    padding: 0 20px;
+    animation: fadeInUp 1.2s ease-out forwards;
+}
+
+.cut-card {
+    overflow: hidden;
+    border-radius: 20px;
+    background-color: #1a1a1a;
+    box-shadow: 0 10px 40px rgba(255, 255, 255, 0.08);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.cut-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.4s ease;
+    display: block;
+    border-radius: 16px;
+}
+
+.cut-card:hover {
+    transform: scale(1.03);
+    box-shadow: 0 15px 60px rgba(255, 255, 255, 0.15);
+}
+
+.cut-card:hover img {
+    transform: scale(1.05);
+}
+
+/* Specific layout positions */
+.cut-card.tall:first-of-type {
+    grid-area: tall1;
+    height: 100%;
+}
+
+.cut-card.short:nth-of-type(2) {
+    grid-area: short1;
+    height: 250px;
+}
+
+.cut-card.featured {
+    grid-area: featured;
+    height: 520px;
+}
+
+.cut-card.short:nth-of-type(4) {
+    grid-area: short2;
+    height: 250px;
+}
+
+.cut-card.tall:last-of-type {
+    grid-area: tall2;
+    height: 100%;
+}
+
+.view-gallery-btn {
+    display: inline-block;
+    margin-top: 40px;
+    padding: 14px 28px;
+    background: linear-gradient(90deg, #f4a261, #e76f51);
+    color: black;
+    font-size: 18px;
+    font-weight: bold;
+    border-radius: 10px;
+    text-decoration: none;
+    transition: transform 0.3s ease, background 0.3s ease;
+}
+
+.view-gallery-btn:hover {
+    background: linear-gradient(90deg, #e76f51, #f4a261);
+    transform: scale(1.05);
+}
+
 /* Responsive */
 @media screen and (max-width: 768px) {
-    .services-grid {
-        flex-direction: column;
-        align-items: center;
+    .cuts-grid {
+        grid-template-areas: none;
+        grid-template-columns: 1fr;
     }
 
-    .service-card {
-        flex-direction: column;
-        text-align: center;
+    .cut-card {
+        height: auto !important;
     }
 
-    .service-img img {
-        width: 100%;
-        max-width: 280px;
-    }
-
-    .service-info {
-        max-width: 100%;
+    .view-gallery-btn {
+        width: 80%;
     }
 }
 
@@ -254,56 +310,120 @@ nav {
 
 
 /* MERCH SECTION */
+
+.view-merch-btn {
+    display: inline-block;
+    margin-top: 40px;
+    padding: 14px 28px;
+    background: linear-gradient(90deg, #f4a261, #e76f51);
+    color: black;
+    font-size: 18px;
+    font-weight: bold;
+    border-radius: 10px;
+    text-decoration: none;
+    transition: transform 0.3s ease, background 0.3s ease;
+}
+
+.view-merch-btn:hover {
+    background: linear-gradient(90deg, #e76f51, #f4a261);
+    transform: scale(1.05);
+}
+
 .merch {
     padding: 120px 20px;
-    text-align: center;
     background: radial-gradient(circle, #121212, #1a1a1a);
     color: white;
+    text-align: center;
 }
 
-/* Merch Grid */
+.merch .section-title {
+    font-size: 42px;
+    margin-bottom: 40px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-weight: bold;
+    background: linear-gradient(90deg, #f4a261, #e76f51);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/* Merch Layout */
 .merch-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 60px;
     max-width: 1100px;
     margin: auto;
-    padding: 0 20px;
 }
 
-/* Floating Merch Cards */
+/* Individual Item */
 .merch-item {
+    display: flex;
+    align-items: center;
+    gap: 40px;
     background: rgba(255, 255, 255, 0.08);
     backdrop-filter: blur(8px);
     border-radius: 15px;
-    padding: 20px;
-    text-align: center;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    padding: 30px;
     border: 1px solid rgba(255, 255, 255, 0.2);
     box-shadow: 0px 8px 20px rgba(255, 255, 255, 0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    text-align: left;
 }
 
-.merch-item:hover {
-    transform: translateY(-5px);
-    box-shadow: 0px 15px 40px rgba(255, 255, 255, 0.2);
+/* Alternate layout for every second item */
+.merch-item:nth-child(even) {
+    flex-direction: row-reverse;
 }
 
-/* Merch Image */
+/* Image Box */
+.merch-img {
+    flex: 1;
+}
+
 .merch-img img {
     width: 100%;
     border-radius: 12px;
     transition: transform 0.3s ease;
 }
 
-/* Hover Effect */
 .merch-item:hover .merch-img img {
     transform: scale(1.05);
 }
 
+/* Text Box */
+.merch-info {
+    flex: 1;
+}
+
+.merch-info h3 {
+    font-size: 26px;
+    margin-bottom: 10px;
+    color: #f4a261;
+}
+
+.merch-info p {
+    font-size: 18px;
+    color: #eee;
+    margin-bottom: 8px;
+}
+
 /* Responsive */
 @media screen and (max-width: 768px) {
-    .merch-container {
-        grid-template-columns: 1fr;
+    .merch-item {
+        flex-direction: column;
+        text-align: center;
+        padding: 20px;
+    }
+
+    .merch-img,
+    .merch-info {
+        width: 100%;
+    }
+
+    .merch-info {
+        padding-top: 20px;
     }
 }
 
@@ -314,61 +434,85 @@ nav {
 
 
 
-/* APPOINTMENTS */
 /* APPOINTMENTS SECTION */
 .appointments {
-    text-align: center;
-    padding: 100px 20px;
-    background: linear-gradient(135deg, rgba(15, 15, 15, 0.95), rgba(30, 30, 30, 0.95));
+    padding: 120px 20px;
+    background: #0a0a0a;
     color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-/* Section Title */
-.appointments h2 {
-    font-size: 36px;
-    margin-bottom: 40px;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    font-weight: bold;
-    font-family: 'Playfair Display', serif;
-}
-
-/* Glassmorphism Appointment Container */
+/* Appointment Container */
 .appointment-container {
+    display: flex;
+    max-width: 1100px;
+    width: 100%;
+    box-shadow: 0 10px 30px rgba(255, 255, 255, 0.1);
+    border-radius: 15px;
+    overflow: hidden;
     background: rgba(255, 255, 255, 0.1);
     backdrop-filter: blur(12px);
-    border-radius: 15px;
-    padding: 40px;
-    max-width: 400px;
-    width: 90%;
-    /* 🔹 Ensures it fits within the screen */
-    margin: auto;
-    box-shadow: 0 10px 30px rgba(255, 255, 255, 0.1);
-    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+/* Left Side - Appointment Form */
+.appointment-form {
+    width: 50%;
+    padding: 50px;
+    background: linear-gradient(135deg, #1a1a1a, #222);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: left;
+}
+
+.appointment-form h2 {
+    font-size: 34px;
+    margin-bottom: 15px;
+    font-weight: bold;
+    text-transform: uppercase;
+    background: linear-gradient(90deg, #f4a261, #e76f51);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.appointment-form p {
+    font-size: 18px;
+    margin-bottom: 20px;
+    opacity: 0.8;
+}
+
+/* Form Styling */
+.appointment-form form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
 }
 
 /* Form Inputs */
-.appointment-container input {
+.appointment-form input {
     width: 100%;
-    padding: 12px;
-    margin: 10px 0;
+    padding: 14px;
     border: none;
     border-radius: 8px;
     font-size: 16px;
     background: rgba(255, 255, 255, 0.15);
     color: white;
     outline: none;
-    transition: background 0.3s ease;
+    transition: background 0.3s ease, transform 0.2s ease;
 }
 
 /* Input Placeholder Styling */
-.appointment-container input::placeholder {
+.appointment-form input::placeholder {
     color: rgba(255, 255, 255, 0.6);
 }
 
 /* Input Hover Effect */
-.appointment-container input:focus {
-    background: rgba(255, 255, 255, 0.2);
+.appointment-form input:focus {
+    background: rgba(255, 255, 255, 0.25);
+    transform: scale(1.02);
 }
 
 /* Appointment Button */
@@ -391,15 +535,44 @@ nav {
     transform: scale(1.05);
 }
 
+/* Right Side - Booksy */
+.appointment-booksy {
+    width: 50%;
+    padding: 50px;
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(15px);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+}
+
+.appointment-booksy h2 {
+    font-size: 34px;
+    margin-bottom: 15px;
+    font-weight: bold;
+    text-transform: uppercase;
+    background: linear-gradient(90deg, #f4a261, #e76f51);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.appointment-booksy p {
+    font-size: 18px;
+    margin-bottom: 20px;
+    opacity: 0.8;
+}
+
 /* Booksy Button */
 .booksy-btn {
     display: inline-block;
-    margin-top: 20px;
     padding: 14px 20px;
+    border-radius: 8px;
+    font-size: 18px;
+    font-weight: bold;
     background: #f4a261;
     color: black;
-    font-weight: bold;
-    border-radius: 8px;
     text-decoration: none;
     transition: transform 0.2s ease, background 0.3s ease;
 }
@@ -410,101 +583,159 @@ nav {
     transform: scale(1.05);
 }
 
-/* Responsive */
+/* Responsive Design */
 @media screen and (max-width: 768px) {
     .appointment-container {
-        width: 90%;
-        /* 🔹 Ensures it stays within the screen */
-        max-width: 300px;
-        /* 🔹 Prevents it from being too wide */
-        margin: auto;
-        /* 🔹 Centers the container */
-        display: flex;
         flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        /* 🔹 Ensures everything inside is centered */
+        width: 90%;
+        text-align: center;
     }
 
+    .appointment-form,
+    .appointment-booksy {
+        width: 100%;
+        padding: 30px;
+    }
 
+    .appointment-form input {
+        font-size: 14px;
+    }
 }
 
 
 
 
 
+.map-wrapper {
+    width: 100%;
+    max-width: 1100px;
+    margin-bottom: 60px;
+}
+
+.map-container {
+    width: 100%;
+    height: 400px;
+    border-radius: 16px;
+    box-shadow: 0 10px 40px rgba(255, 255, 255, 0.08);
+}
 
 
 
-/* CONTACT */
+
+
 /* CONTACT SECTION */
+/* Contact section becomes a vertical column (map above, contact-container below) */
 .contact {
     padding: 120px 20px;
-    text-align: center;
-    background: linear-gradient(135deg, rgba(15, 15, 15, 0.95), rgba(30, 30, 30, 0.95));
+    background: #0a0a0a;
     color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 
-/* Section Title */
-.section-title {
-    font-size: 42px;
-    margin-bottom: 50px;
-    text-transform: uppercase;
-    letter-spacing: 2px;
+
+/* Contact Container - Split Screen Layout */
+.contact-container {
+    display: flex;
+    max-width: 1100px;
+    width: 100%;
+    box-shadow: 0 10px 30px rgba(255, 255, 255, 0.1);
+    border-radius: 15px;
+    overflow: hidden;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(12px);
+}
+
+/* Left Side - Contact Info */
+.contact-info {
+    width: 50%;
+    padding: 50px;
+    background: linear-gradient(135deg, #1a1a1a, #222);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: left;
+}
+
+.contact-info a {
+    color: #f4a261;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.contact-info a:hover {
+    color: #e76f51;
+    text-decoration: underline;
+}
+
+
+.contact-info h2 {
+    font-size: 34px;
+    margin-bottom: 20px;
     font-weight: bold;
-    font-family: 'Playfair Display', serif;
+    text-transform: uppercase;
     background: linear-gradient(90deg, #f4a261, #e76f51);
+    background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
 
-/* Contact Content Layout */
-.contact-content {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    max-width: 1000px;
-    margin: auto;
-    padding: 30px;
-    background: rgba(255, 255, 255, 0.1);
-    backdrop-filter: blur(10px);
-    border-radius: 15px;
-    box-shadow: 0 10px 30px rgba(255, 255, 255, 0.1);
-    border: 1px solid rgba(255, 255, 255, 0.2);
-}
-
-/* Contact Info */
-.contact-info {
-    text-align: left;
-    width: 40%;
-    font-size: 18px;
-    line-height: 1.8;
-}
-
 .contact-info p {
-    margin-bottom: 10px;
+    font-size: 18px;
+    margin-bottom: 15px;
     display: flex;
     align-items: center;
-    gap: 10px;
 }
 
-.contact-info i {
-    font-size: 22px;
+/* Social Media Icons */
+.social-icons {
+    margin-top: 20px;
+}
+
+.social-icons a {
     color: #f4a261;
+    font-size: 24px;
+    margin-right: 15px;
+    transition: transform 0.3s ease, color 0.3s ease;
 }
 
-/* Contact Form */
+.social-icons a:hover {
+    color: #e76f51;
+    transform: scale(1.2);
+}
+
+/* Right Side - Contact Form */
 .contact-form {
     width: 50%;
+    padding: 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(15px);
 }
 
-/* Form Inputs */
+/* Form Styling */
+.contact-form h2 {
+    font-size: 34px;
+    margin-bottom: 20px;
+    font-weight: bold;
+    text-transform: uppercase;
+    background: linear-gradient(90deg, #f4a261, #e76f51);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
 .contact-form form {
     display: flex;
     flex-direction: column;
     gap: 15px;
 }
 
+/* Form Fields */
 .contact-form input,
 .contact-form textarea {
     width: 100%;
@@ -515,7 +746,7 @@ nav {
     background: rgba(255, 255, 255, 0.15);
     color: white;
     outline: none;
-    transition: background 0.3s ease;
+    transition: background 0.3s ease, transform 0.2s ease;
 }
 
 /* Placeholder Styling */
@@ -524,10 +755,11 @@ nav {
     color: rgba(255, 255, 255, 0.6);
 }
 
-/* Input Hover Effect */
+/* Input Focus Effect */
 .contact-form input:focus,
 .contact-form textarea:focus {
-    background: rgba(255, 255, 255, 0.2);
+    background: rgba(255, 255, 255, 0.25);
+    transform: scale(1.02);
 }
 
 /* Send Button */
@@ -550,22 +782,33 @@ nav {
     transform: scale(1.05);
 }
 
-/* Responsive Design */
+/* Responsive Layout */
 @media screen and (max-width: 768px) {
-    .contact-content {
+    .contact-container {
         flex-direction: column;
-        width: 80%;
-        padding: 25px;
+        width: 100%;
+        max-width: 100%;
+        padding: 0 15px;
+        box-sizing: border-box;
     }
 
+    .contact-form,
     .contact-info {
         width: 100%;
-        text-align: center;
-        margin-bottom: 20px;
+        padding: 20px;
+        box-sizing: border-box;
     }
 
-    .contact-form {
+    .contact-form form {
         width: 100%;
+        max-width: 100%;
+    }
+
+    .contact-form input,
+    .contact-form textarea {
+        width: 100%;
+        max-width: 100%;
+        box-sizing: border-box;
     }
 }
 

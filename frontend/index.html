@@ -5,6 +5,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Barbas Barbershop</title>
+    <link rel="icon" type="image/png" href="./assets/images/barbas.png">
+
+    <!-- Mapbox GL JS -->
+    <link href="https://api.mapbox.com/mapbox-gl-js/v2.15.0/mapbox-gl.css" rel="stylesheet" />
+    <script src="https://api.mapbox.com/mapbox-gl-js/v2.15.0/mapbox-gl.js"></script>
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+        integrity="sha512-Avb2QiuDEEvB4bZJYdft2mNjVShBftLdPG8FJ0V7irTLQ8Uo0qcPxh4Plq7G5tGm0rU+1SPhVotteLpBERwTkw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+
+
+
     <link rel="stylesheet" href="/frontend/style.css">
 </head>
 
@@ -13,16 +26,25 @@
     <!-- HEADER -->
     <header>
         <nav>
-            <h1>Barbas</h1>
+            <h1><a href="#hero">Barbas</a></h1>
+
+            <!-- 👇 LOGO IN THE CENTER -->
+            <div class="nav-logo-wrapper">
+                <img src="./assets/images/barbas.png" alt="Barbas Logo" class="nav-logo">
+            </div>
+
             <div class="hamburger" id="hamburger">&#9776;</div>
             <ul class="nav-items-container" id="nav-menu">
-                <li><a href="#home">Home</a></li>
-                <li><a href="#services">Services</a></li>
+                <li><a href="#hero">Home</a></li>
+                <li><a href="#gallery">Gallery</a></li>
                 <li><a href="#appointments">Appointments</a></li>
+                <li><a href="#merch">Merch</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
         </nav>
     </header>
+
+
 
     <!-- HERO SECTION -->
     <section class="hero" id="hero">
@@ -33,39 +55,38 @@
         </div>
     </section>
 
-    <!-- SERVICES SECTION -->
-    <section class="services" id="services">
-        <h2 class="section-title">Our Signature Services</h2>
-        <div class="services-grid">
-            <div class="service-card">
-                <div class="service-img">
-                    <img src="../backend/static/assets/section-image.jpeg" alt="section-image">
-                </div>
-                <div class="service-info">
-                    <h3>Classic Haircut</h3>
-                    <p>Precision styling tailored to your look.</p>
-                </div>
+
+
+
+
+
+    <!-- FEATURED CUTS SECTION -->
+    <section class="featured-cuts" id="gallery">
+        <h2 class="section-title">Featured Cuts</h2>
+        <p class="section-subtitle">Real cuts. Real style. Real sharp.</p>
+        <div class="cuts-grid">
+            <div class="cut-card tall">
+                <img src="https://images.unsplash.com/photo-1618049049816-43a00d5b0c3d" alt="Cut 1">
             </div>
-            <div class="service-card">
-                <div class="service-img">
-                    <img src="../backend/static/assets/section-image.jpeg" alt="section-image">
-                </div>
-                <div class="service-info">
-                    <h3>Beard Trim</h3>
-                    <p>Sharp edges & perfect grooming.</p>
-                </div>
+            <div class="cut-card short">
+                <img src="https://images.unsplash.com/photo-1618049049816-43a00d5b0c3d" alt="Cut 2">
             </div>
-            <div class="service-card">
-                <div class="service-img">
-                    <img src="../backend/static/assets/section-image.jpeg" alt="section-image">
-                </div>
-                <div class="service-info">
-                    <h3>Hot Towel Shave</h3>
-                    <p>Relaxing, smooth & professional.</p>
-                </div>
+            <div class="cut-card featured">
+                <img src="https://images.unsplash.com/photo-1618049049816-43a00d5b0c3d" alt="Cut 3">
+            </div>
+            <div class="cut-card short">
+                <img src="https://images.unsplash.com/photo-1618049049816-43a00d5b0c3d" alt="Cut 4">
+            </div>
+            <div class="cut-card tall">
+                <img src="https://images.unsplash.com/photo-1618049049816-43a00d5b0c3d" alt="Cut 5">
             </div>
         </div>
+
+        <a href="gallery.html" class="view-gallery-btn">View Full Gallery</a>
     </section>
+
+
+
 
 
 
@@ -74,38 +95,51 @@
 
 
     <!-- FEATURED MERCH SECTION -->
-    <section class="merch">
+    <section class="merch" id="merch">
         <h2 class="section-title">Exclusive Merch</h2>
         <div class="merch-container">
+
+            <!-- ITEM 1 -->
             <div class="merch-item">
                 <div class="merch-img">
-                    <img src="../backend/static/assets/section-image.jpeg" alt="section-image">
+                    <img src="../backend/static/assets/section-image.jpeg" alt="Premium Beard Oil">
                 </div>
                 <div class="merch-info">
                     <h3>Premium Beard Oil</h3>
                     <p>$15</p>
+                    <p>Hydrates and nourishes your beard while keeping it fresh and stylish.</p>
                 </div>
             </div>
+
+            <!-- ITEM 2 -->
             <div class="merch-item">
                 <div class="merch-img">
-                    <img src="../backend/static/assets/section-image.jpeg" alt="section-image">
+                    <img src="../backend/static/assets/section-image.jpeg" alt="Snapback Hat">
                 </div>
                 <div class="merch-info">
                     <h3>Barbas Branded Snapback</h3>
                     <p>$25</p>
+                    <p>Show off your fresh cut with this stylish and adjustable snapback.</p>
                 </div>
             </div>
+
+            <!-- ITEM 3 -->
             <div class="merch-item">
                 <div class="merch-img">
-                    <img src="../backend/static/assets/section-image.jpeg" alt="section-image">
+                    <img src="../backend/static/assets/section-image.jpeg" alt="Shaving Cream">
                 </div>
                 <div class="merch-info">
                     <h3>Luxury Shaving Cream</h3>
                     <p>$20</p>
+                    <p>Experience a smooth shave with our rich-lather, skin-safe cream.</p>
                 </div>
             </div>
+
         </div>
+
+        <a href="./merch.html" class="view-merch-btn">View All Merch</a>
     </section>
+
 
 
 
@@ -116,29 +150,49 @@
 
     <!-- APPOINTMENTS SECTION -->
     <section class="appointments" id="appointments">
-        <h2>Book an Appointment</h2>
         <div class="appointment-container">
-            <form>
-                <input type="text" placeholder="Your Name" required>
-                <input type="email" placeholder="Your Email" required>
-                <input type="date" required>
-                <button type="submit" class="appointment-btn">Confirm Booking</button>
-            </form>
-            <a href="https://booksy.com" target="_blank" class="booksy-btn">Book on Booksy</a>
+
+            <!-- Full Width Booksy Section Only -->
+            <div class="appointment-booksy" style="width: 100%;">
+                <h2>USE BOOKSY TO BOOK YOUR CUT</h2>
+                <p>Click below to book instantly through Booksy.</p>
+                <a href="https://booksy.com" target="_blank" class="booksy-btn">Book on Booksy</a>
+            </div>
+
         </div>
     </section>
 
 
-    <!-- CONTACT SECTION -->
+
+
     <section class="contact" id="contact">
-        <h2 class="section-title">Get in Touch</h2>
-        <div class="contact-content">
+
+        <!-- 🔹 MAP goes first, full-width, above the contact-container -->
+        <div class="map-wrapper">
+            <div id="map" class="map-container"></div>
+        </div>
+
+        <!-- 🔹 Contact Info + Form stay side-by-side -->
+        <div class="contact-container">
+            <!-- Left: Contact Info -->
             <div class="contact-info">
-                <p><i class="fas fa-map-marker-alt"></i> 123 Barber St, Los Angeles, CA</p>
-                <p><i class="fas fa-phone"></i> (555) 123-4567</p>
-                <p><i class="fas fa-envelope"></i> contact@barbas.com</p>
+                <h2>Let's Connect</h2>
+                <p> <a href="https://www.google.com/maps/place/BARBA'S+BARBERSHOP/@33.3882692,-111.7877834,66m/data=!3m1!1e3!4m7!3m6!1s0x872ba8eaf1ff3125:0xf409712533753f5f!4b1!8m2!3d33.3884146!4d-111.7874802!16s%2Fg%2F1tdw3yvf?entry=ttu"
+                        target="_blank" rel="noopener noreferrer">
+                        📍 123 Barber St, Los Angeles, CA
+                    </a>
+                </p>
+                <p>📞 (480)633-0920</p>
+                <!-- <p>📧 contact@barbas.com</p> -->
+                <div class="social-icons">
+                    <a href="https://www.facebook.com/barbasbarbershopaz/"><i class="fab fa-facebook"></i></a>
+                    <a href="https://www.instagram.com/barbasaz/?hl=en"><i class="fab fa-instagram"></i></a>
+                </div>
             </div>
+
+            <!-- Right: Contact Form -->
             <div class="contact-form">
+                <h2>Send a Message</h2>
                 <form>
                     <input type="text" placeholder="Your Name" required>
                     <input type="email" placeholder="Your Email" required>
@@ -147,7 +201,12 @@
                 </form>
             </div>
         </div>
+
     </section>
+
+
+
+
 
 
 
@@ -174,6 +233,24 @@
             });
         });
     </script>
+    <script>
+        mapboxgl.accessToken = 'pk.eyJ1IjoiYmV0b2pyMDQiLCJhIjoiY2x3eDM0NHdpMTFnODJpcHpvbG9qeW5tdyJ9.XiysRrVn2IIOVN4UWjxd4A';
+
+        const map = new mapboxgl.Map({
+            container: 'map',
+            style: 'mapbox://styles/mapbox/streets-v11',
+            center: [-111.78747, 33.38840],
+            zoom: 13
+        });
+
+        new mapboxgl.Marker()
+            .setLngLat([-111.78747, 33.38840])
+            .addTo(map);
+    </script>
+
+
+
+
 
 
 </body>
